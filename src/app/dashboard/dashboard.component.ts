@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from '../item';
+import { ItemCard } from '../item-card';
 import { ItemService } from "../item.service";
 
 @Component({
@@ -9,13 +9,15 @@ import { ItemService } from "../item.service";
 })
 
 export class DashboardComponent implements OnInit {
-  items: Item[] = [];
+  cards: ItemCard[] = [];
 
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
-    this.itemService.getItems()
-      .subscribe(items => this.items = items.slice(1,5));
+    this.itemService.getItemCards()
+      .subscribe(cards =>
+         this.cards = cards.slice(1,5)
+         );
   }
 
 }

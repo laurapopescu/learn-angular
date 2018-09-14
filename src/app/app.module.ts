@@ -11,7 +11,10 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ItemCardComponent } from './item-card/item-card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatCardModule } from '@angular/material';
 
 
 @NgModule({
@@ -20,14 +23,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ItemsComponent,
     ItemDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    ItemCardComponent
   ],
   imports: [
     BrowserModule, 
     FormsModule, 
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
+    BrowserAnimationsModule, 
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

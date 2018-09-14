@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { MessageService } from "./message.service";
 import { Item } from "./item";
+import { ItemCard } from './item-card';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,15 @@ export class ItemService {
        tap(_ => this.log(`Fetched item with id=${id}`)),
        catchError(this.handleError<Item>('getItem'))
       );
+  }
+
+  getItemCards(): Observable<ItemCard[]> { 
+    var itemCards = this.httpClient.get<Item[]>(this.itemsUrl)
+    .pipe(
+      map(items => items.map(item =>  (new ItemCard(item.name))),
+      catchError(this.handleError<ItemCard[]>('getItemCards', []))
+    ));
+    return itemCards;
   }
 
   private log(message: string) { 
