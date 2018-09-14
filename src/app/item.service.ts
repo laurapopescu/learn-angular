@@ -5,39 +5,39 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { MessageService } from "./message.service";
-import { Hero } from "./hero";
+import { Item } from "./item";
 
 @Injectable({
   providedIn: 'root'
 })
-export class HeroService {
+export class ItemService {
 
-  private heroesUrl = 'api/heroes';
+  private itemsUrl = 'api/items';
  
   constructor(private httpClient: HttpClient,
               private messageService: MessageService) { }
 
-  getHeroes(): Observable<Hero[]> { 
-    this.log("Fetching heroes");
-    return this.httpClient.get<Hero[]>(this.heroesUrl)
+  getItems(): Observable<Item[]> { 
+    this.log("Fetching items");
+    return this.httpClient.get<Item[]>(this.itemsUrl)
       .pipe(
-        tap(_ => this.log('fetched heroes')),
-        catchError(this.handleError<Hero[]>('getHeroes', []))
+        tap(_ => this.log('fetched items')),
+        catchError(this.handleError<Item[]>('getItems', []))
       )
   }
 
-  getHero(id: number): Observable<Hero> { 
-    const url = `${this.heroesUrl}/${id}`;
+  getItem(id: number): Observable<Item> { 
+    const url = `${this.itemsUrl}/${id}`;
     
-    return this.httpClient.get<Hero>(url)
+    return this.httpClient.get<Item>(url)
     .pipe(
-       tap(_ => this.log(`Fetched hero with id=${id}`)),
-       catchError(this.handleError<Hero>('getHero'))
+       tap(_ => this.log(`Fetched item with id=${id}`)),
+       catchError(this.handleError<Item>('getItem'))
       );
   }
 
   private log(message: string) { 
-    this.messageService.add(`HeroService: ${message}`);
+    this.messageService.add(`ItemService: ${message}`);
   }
 
   private handleError<T>(operation = 'operation', result?: T ) { 
