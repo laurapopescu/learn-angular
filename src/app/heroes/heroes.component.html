@@ -1,0 +1,19 @@
+<div>
+
+  <div><input [(ngModel)]="hero.name" placeholder="name"></div>
+
+  <h2>My heroes</h2>
+
+  <div>  
+    <app-hero-detail [hero]="selectedHero"></app-hero-detail>
+
+    <ul class="heroes">
+      <li *ngFor="let hero of heroes">
+        <a routerLink="/detail/{{hero.id}}">
+          <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</div>
