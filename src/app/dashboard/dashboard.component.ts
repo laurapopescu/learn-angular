@@ -15,9 +15,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.itemService.getItemCards()
-      .subscribe(cards =>
-         this.cards = cards.slice(1,5)
-         );
+      .subscribe(cards => this.cards = cards.slice(1,5));
   }
-
 }
