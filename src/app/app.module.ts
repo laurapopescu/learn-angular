@@ -12,7 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ItemCardComponent } from './item-card/item-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatCardModule } from '@angular/material';
+import { MatCardModule, MatProgressBarModule } from '@angular/material';
 
 
 @NgModule({
@@ -30,7 +30,8 @@ import { MatCardModule } from '@angular/material';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule, 
-    MatCardModule
+    MatCardModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

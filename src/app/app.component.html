@@ -1,11 +1,18 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<nav>
+<div>
   <a routerLink="/items">Home</a>
   <a routerLink="/dashboard">Top headlines</a>
-</nav>
+</div>
 
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<div [hidden]="!loading" class="loader">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div [hidden]="loading" class="loader">
+  <router-outlet></router-outlet>
+  <app-messages></app-messages>
+</div>
+
  
 
