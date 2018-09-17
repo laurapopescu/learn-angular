@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemCard } from '../item-card';
-import { ItemService } from "../item.service";
+
+import { Article } from '../article';
+import { NewsService } from "../news.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -9,12 +10,12 @@ import { ItemService } from "../item.service";
 })
 
 export class DashboardComponent implements OnInit {
-  cards: ItemCard[] = [];
+  news: Article[] = [];
 
-  constructor(private itemService: ItemService) { }
+  constructor(private newsService: NewsService) { }
 
   ngOnInit() {
-    this.itemService.getItemCards()
-      .subscribe(cards => this.cards = cards.slice(1,5));
+    this.newsService.getTopHeadlines()
+      .subscribe(news => this.news = news);
   }
 }

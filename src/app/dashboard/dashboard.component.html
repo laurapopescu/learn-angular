@@ -1,6 +1,5 @@
-<h3> Top items</h3>
 <div>
-    <a *ngFor="let card of cards" class="col-1-4" routerLink="/detail/{{card.id}}">
+    <a *ngFor="let card of news" class="col-1-4" routerLink="/detail/{{card.id}}">
         <app-item-card [card] = card></app-item-card>
     </a>
 </div>

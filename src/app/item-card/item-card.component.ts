@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { ItemService } from '../item.service';
-import { ItemCard } from '../item-card';
+import { Article } from '../article';
 
 @Component({
   selector: 'app-item-card',
@@ -10,9 +9,9 @@ import { ItemCard } from '../item-card';
 })
 export class ItemCardComponent implements OnInit {
 
-  @Input() card: ItemCard;
+  @Input() card: Article;
 
-  constructor(private itemService: ItemService) { }
+  constructor() { }
 
   ngOnInit() {
   }
